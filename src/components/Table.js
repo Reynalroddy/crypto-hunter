@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 import { createTheme } from "react-data-table-component";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 const Table = () => {
   const { cur } = useSelector((state) => state.currency);
@@ -118,6 +118,7 @@ const Table = () => {
   );
   useEffect(() => {
     getCoins();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cur]);
   console.log(coins, search);
   return (

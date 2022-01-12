@@ -33,7 +33,6 @@ const Chart = ({ id }) => {
     chartdata.map((it) => {
       const day = new Date(it[0]).toLocaleDateString();
       const price = it[1];
-
       return { day, price };
     });
 

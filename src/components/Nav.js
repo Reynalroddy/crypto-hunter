@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form, Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { update } from "../redux/currencySlice";
 
 const Navs = () => {
