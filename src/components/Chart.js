@@ -8,7 +8,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import axios from "axios";
 const Chart = ({ id }) => {
@@ -60,6 +60,7 @@ const Chart = ({ id }) => {
           <Line type="monotone" dataKey="price" stroke="#d6ad3e" />
           {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
         </LineChart>
+        <Button onClick={() => setDays(2)}></Button>
       </ResponsiveContainer>
     </>
   );
