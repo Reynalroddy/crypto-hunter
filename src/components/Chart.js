@@ -1,48 +1,30 @@
 import React, { useEffect, useState } from "react";
 import {
-  Container,
-  Row,
-  Col,
-  Offcanvas,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Navbar,
-  Nav,
-} from "react-bootstrap";
-import {
   LineChart,
   Line,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer,
 } from "recharts";
 
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axios from "axios";
-// import { Line } from "react-chartjs-2";
 const Chart = ({ id }) => {
   const { cur } = useSelector((state) => state.currency);
   const [chartdata, setChartData] = useState();
   const [days, setDays] = useState(1);
-  const [loading, setLoading] = useState(false);
+
   //   const { id } = useParams();
   const fetchHistoricData = async () => {
-    setLoading(true);
     try {
       const { data } = await axios.get(
         `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${cur}&days=${days}`
       );
       setChartData(data.prices);
-      setLoading(false);
     } catch (error) {
       console.log(error);
-      setLoading(false);
     }
   };
 

@@ -1,33 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import AliceCarousel from "react-alice-carousel";
 import { Link } from "react-router-dom";
 const Carousel = () => {
   const curType = useSelector((state) => state.currency);
   const [trendCoin, setTrendCoin] = useState([]);
-  const [loading, setLoading] = useState(false);
+
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   const fetchTrending = async () => {
-    setLoading(true);
     try {
       const trends = await axios.get(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${curType.cur}&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h`
       );
       setTrendCoin(trends.data);
-      setLoading(false);
+
       //   console.log(trends);
     } catch (error) {
       console.log(error);
-      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchTrending();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curType]);
   //   console.log(trendCoin);
 

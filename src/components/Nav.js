@@ -7,7 +7,7 @@ import { update } from "../redux/currencySlice";
 const Navs = () => {
   const nav = useNavigate();
   const dispatch = useDispatch();
-  const curType = useSelector((state) => state.currency);
+  // const curType = useSelector((state) => state.currency);
   const handleChange = (e) => {
     dispatch(update(e.target.value));
   };

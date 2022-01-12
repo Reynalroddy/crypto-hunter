@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Offcanvas,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Navbar,
-  Nav,
-} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 // import bg from "../assets/banner2.jpg";
 import Carousel from "./Carousel";
 const Banner = () => {
